@@ -1,0 +1,61 @@
+{
+  "id":"/meetup-example",
+  "groups": [{
+    "id": "/meetup-example/database",
+    "apps":[{
+      "id": "mariadb",
+      "instances": 1,
+      "cpus": 0.5,
+      "mem": 256,
+      "container": {
+        "type": "DOCKER",
+        "docker": {
+          "image": "mariadb",
+          "network": "BRIDGE",
+          "portMappings": [{
+            "containerPort": 3306,
+            "hostPort": 6612,
+            "protocol": "tcp"
+          }],
+        },
+        "forcePullImage":true
+      },
+      "env": {
+        "MYSQL_ROOT_PASSWORD": "password1"
+      },
+      "ports":[
+        6612
+      ]
+    }]
+  },{
+    "id": "/meetup-example/phpmyadmin",
+    "dependencies": ["/meetup-example/database"],
+    "apps": [
+      "id": "phpmyadmin",
+      "instances": 1,
+      "cpus": 0.1,
+      "mem": 256,
+      "container": {
+        "type": "DOCKER",
+        "docker": {
+          "image": "corbinu/docker-phpmyadmin",
+          "network": "BRIDGE",
+          "portMappings": [{
+            "containerPort": 80,
+            "hostPort": 8080,
+            "protocol": "tcp"
+          }]
+        },
+        "forcePullImage":true
+      },
+      "env": {
+        "MYSQL_USERNAME": "root",
+        "MYSQL_PORT_3306_TCP_ADDR": "mariadb.marathon.mesos",
+        "MYSQL_PORT_3306_TCP_PORT": "6612"
+      },
+      "ports":[
+        8080
+      ]
+    ]
+  }]
+}

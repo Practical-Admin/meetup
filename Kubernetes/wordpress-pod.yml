@@ -9,8 +9,14 @@ spec:
     - image: wordpress
       name: wordpress
       env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql-service
+        - name: WORDPRESS_DB_USER
+          value: root
         - name: WORDPRESS_DB_PASSWORD
           value: password1
+        - name: WORDPRESS_DB_NAME
+          value: wordpress
       ports: 
         - containerPort: 80
           name: wordpress

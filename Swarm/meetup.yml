@@ -1,0 +1,16 @@
+wordpress:
+  image: wordpress
+  ports:
+    - "8080:80"
+  links:
+    - db:mysql
+  environment:
+    WORDPRESS_DB_HOST: mysql
+    WORDPRESS_DB_USER: root
+    WORDPRESS_DB_PASSWORD: password1
+    WORDPRESS_DB_NAME: wordpress
+db:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: password1
+    MYSQL_DATABASE: wordpress
