@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata: 
-  name: wordpress-service
+  name: phpmyadmin-service
   labels: 
-    name: wordpress
+    name: phpmyadmin
 spec: 
   ports:
     - port: 80
   selector: 
-    name: wordpress
+    name: phpmyadmin

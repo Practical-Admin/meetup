@@ -1,21 +1,19 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mysql-pod
+  name: mariadb-pod
   labels: 
-    name: mysql
+    name: mariadb
 spec: 
   containers: 
     - resources:
         limits :
           cpu: 0.5
-      image: mysql:latest
-      name: mysql
+      image: mariadb:latest
+      name: mariadb
       env:
         - name: MYSQL_ROOT_PASSWORD
           value: password1
-        - name: MYSQL_DATABASE
-          value: wordpress
       ports: 
         - containerPort: 3306
-          name: mysql
+          name: mariadb

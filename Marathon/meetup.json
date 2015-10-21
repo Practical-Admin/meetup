@@ -50,8 +50,7 @@
       },
       "env": {
         "MYSQL_USERNAME": "root",
-        "MYSQL_PORT_3306_TCP_ADDR": "mariadb.marathon.mesos",
-        "MYSQL_PORT_3306_TCP_PORT": "6612"
+        "MYSQL_PASSWORD": "password1"
       },
       "ports":[
         8080

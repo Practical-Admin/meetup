@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: phpmyadmin-pod
+  labels: 
+    name: phpmyadmin
+spec: 
+  containers: 
+    - image: phpmyadmin
+      name: phpmyadmin
+      env:
+        - name: MYSQL_USERNAME
+          value: root
+        - name: MYSQL_ROOT_PASSWORD
+          value: password1
+      ports: 
+        - containerPort: 80
+          name: phpmyadmin
