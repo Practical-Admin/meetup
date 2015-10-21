@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mariavol-pod
+  labels:
+    name: mariavol
+spec:
+  containers: 
+    - resources:
+        limits :
+          cpu: 0.5
+      image: mariadb:latest
+      name: mariadb
+      volumeMounts:
+      - mountPath: "/var/lib/data"
+        name: mariavolume
+  volumes:
+    - name: mariavolume
+      source:
+        persistentVolumeClaim:
+         accessMode: ReadWriteOnce
+         claimRef:
+           name: mariavolume-claim
