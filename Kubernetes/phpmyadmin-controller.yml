@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: phpmyadmin
+  labels:
+    name: phpmyadmin
+spec:
+  replicas: 1
+  selector:
+    name: phpmyadmin
+  template:
+    metadata:
+      labels:
+        name: phpmyadmin
+    spec:
+      containers:
+        - image: phpmyadmin
+          name: phpmyadmin
+          env:
+            - name: MYSQL_USERNAME
+              value: root
+            - name: MYSQL_ROOT_PASSWORD
+              value: password1
+          ports: 
+            - containerPort: 80
+              name: phpmyadmin
