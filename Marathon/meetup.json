@@ -30,7 +30,7 @@
   },{
     "id": "/meetup-example/phpmyadmin",
     "dependencies": ["/meetup-example/database"],
-    "apps": [
+    "apps": [{
       "id": "phpmyadmin",
       "instances": 1,
       "cpus": 0.1,
@@ -55,6 +55,6 @@
       "ports":[
         8080
       ]
-    ]
+    }]
   }]
 }
