@@ -1,4 +1,4 @@
-wordpress:
+phpmyadmin:
   image: corbinu/docker-phpmyadmin
   ports:
     - "80"
