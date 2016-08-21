@@ -1,15 +1,6 @@
 version: '2'
 
 services:
-    phpmyadmin:
-      image: corbinu/docker-phpmyadmin
-      ports:
-        - "80"
-      links:
-        - db:mysql
-      environment:
-        - MYSQL_USERNAME: root
-        - MYSQL_PASSWORD: password1
     db:
       image: mariadb
       environment:
