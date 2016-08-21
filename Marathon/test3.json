@@ -1,0 +1,24 @@
+{
+    "id": "/insight-example",
+    "groups": [{
+        "id": "/insight-example/database",
+        "apps": [{
+            ...
+            "container": {
+                "type": "DOCKER",
+                "docker": {
+                    "image": "mariadb",
+                    "network": "BRIDGE",
+                    "portMappings": [{
+                        "containerPort": 3306,
+                        "hostPort": 0,
+                        "protocol": "tcp"
+                    }],
+                    
+                },
+                "forcePullImage": true
+            },
+            ...
+        }]
+    }]
+}

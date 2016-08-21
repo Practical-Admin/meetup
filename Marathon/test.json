@@ -1,0 +1,12 @@
+{
+    "id": "/insight-example",
+    "groups": [{
+        "id": "/insight-example/database",
+        "apps": [{ ... }]
+    },
+    {
+        "id": "/insight-example/phpmyadmin",
+        "dependencies": ["/insight-example/database"],
+        "apps": [{ ... }]
+    }]
+}

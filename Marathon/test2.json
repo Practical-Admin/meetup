@@ -1,0 +1,17 @@
+{
+    "id": "/insight-example",
+    "groups": [{
+        "id": "/insight-example/database",
+        "apps": [{
+            "id": "mariadb",
+            "instances": 1,
+            "cpus": 1,
+            "mem": 256,
+            "container": { ... },
+            "env": {
+                "MYSQL_ROOT_PASSWORD": "password1"
+            },
+            "ports": [0]
+        }]
+    }]
+}
